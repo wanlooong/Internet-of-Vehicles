@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.administrator.keshe">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- BmobPush SDK权限 -->
+    <permission
+        android:name="cn.bmob.permission.push"
+        android:protectionLevel="normal"></permission>
+
+    <uses-permission android:name="cn.bmob.permission.push" /> <!-- 添加自定义的权限 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+
+    <!-- 百度地图SDK权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.LoginActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".keshe.SayHelloActivity">
+        </activity>
+        <activity android:name=".ui.MainActivity"></activity>
+        <activity android:name=".map.PoiSearchDemo"></activity>
+        <activity android:name=".ui.RegisterActivity"></activity>
+        <activity android:name=".ui.OilActivity"></activity>
+        <activity android:name=".ui.MapActivity"></activity>
+        <activity android:name=".ui.SetActivity"></activity>
+        <activity android:name=".set.SetPerson"></activity>
+        <activity android:name=".set.SetName"></activity>
+        <activity android:name=".set.SetSex"></activity>
+        <activity android:name=".set.SetPassword"></activity>
+        <activity android:name=".ui.FixActivity"></activity>
+
+        <!-- 违规模块 -->
+        <activity android:name=".ui.WeizhangActivity"></activity>
+        <activity android:name=".weizhang.ShortNameList"></activity>
+        <activity android:name=".weizhang.ProvinceList"></activity>
+        <activity android:name=".weizhang.CityList"></activity>
+        <activity android:name=".weizhang.WeizhangResult"></activity>
+
+        <service android:name="com.cheshouye.api.client.WeizhangIntentService" />
+
+        <activity
+            android:name="ui.MapFind"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAPFIND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="map.PoiSearchDemo"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAPOIL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".oil.OilAddVehcle"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.OILFIND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="t280kQxx1W7xjUlUMLhB5vqGnh8iDmrq" />
+
+        <!-- 声明百度定位API的定位服务 -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"></service>
+    </application>
+
+</manifest>
